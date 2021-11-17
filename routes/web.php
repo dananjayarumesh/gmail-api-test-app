@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post(
+    '/email/send',
+    [\App\Http\Controllers\HomeController::class, 'send']
+);
+
+Route::get(
+    '/google/oauth2/callback',
+    [\App\Http\Controllers\HomeController::class, 'callback']
+);

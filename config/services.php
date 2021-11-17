@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain'   => env('MAILGUN_DOMAIN'),
+        'secret'   => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
@@ -25,9 +25,25 @@ return [
     ],
 
     'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
+        'key'    => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+    ],
+
+    'google' => [
+        'web' => [
+            'client_id'                   => env('GOOGLE_CLIENT_ID'),
+            'project_id'                  => env('GOOGLE_PROJECT_ID'),
+            'auth_uri'                    => 'https://accounts.google.com/o/oauth2/auth',
+            'token_uri'                   => 'https://oauth2.googleapis.com/token',
+            'auth_provider_x509_cert_url' => 'https://www.googleapis.com/oauth2/v1/certs',
+            'client_secret'               => env('GOOGLE_CLIENT_SECRET'),
+            'redirect_uris'               => [
+                'http://localhost:8000/google/oauth2/callback',
+                'https://coachIn-api.macroactivemvp.com/google/oauth2/callback',
+                'https://coachIn-api-staging.macroactivemvp.com/google/oauth2/callback'
+            ]
+        ]
     ],
 
 ];
